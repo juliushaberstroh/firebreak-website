@@ -1,0 +1,321 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  max-width: 1200px;
+  margin: -20px auto 0 auto;
+}
+
+.logo {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin-right: auto;
+  margin-left: -155px;
+}
+
+.logo img {
+  height: 144px;
+  width: auto;
+  display: block;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  gap: 4px;
+  margin-right: -120px;
+}
+
+.menu-icon span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.menu-icon:hover span {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  text-align: left;
+  padding-top: 80px;
+  background: #000000;
+}
+
+.shader-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.scrim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 4;
+  max-width: 600px;
+  padding: 0 40px 60px 40px;
+  color: white;
+}
+
+.hero h1 {
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: bold;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.cta-button {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #d63d37;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(236, 76, 70, 0.3);
+}
+
+.features {
+  padding: 100px 0;
+  background-color: var(--background-color);
+}
+
+.features h2 {
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 60px;
+}
+
+.features-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.feature {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(17, 70, 110, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(17, 70, 110, 0.15);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.feature p {
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.email-signup {
+  padding: 80px 0;
+  background-color: white;
+}
+
+.signup-form {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.signup-form p {
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.signup-form-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-form-wrapper input[type="email"] {
+  flex: 1;
+  padding: 15px 20px;
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.signup-form-wrapper input[type="email"]:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(21, 77, 188, 0.1);
+}
+
+.signup-form-wrapper button {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.signup-form-wrapper button:hover {
+  background-color: #d63d37;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(236, 76, 70, 0.3);
+}
+
+footer {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  padding: 40px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-content p {
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-links a {
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.9rem;
+  color: var(--background-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  nav {
+    padding: 10px 15px;
+  }
+  
+  .logo {
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .logo img {
+    height: 35px;
+  }
+  
+  .menu-icon {
+    margin-left: auto;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .signup-form-wrapper {
+    flex-direction: column;
+  }
+  
+  .signup-form-wrapper input[type="email"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
