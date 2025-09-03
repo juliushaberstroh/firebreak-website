@@ -56,16 +56,10 @@ nav {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.hero {
+.hero-problem-wrapper {
   position: relative;
-  min-height: 100vh;
+  min-height: 200vh;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  text-align: left;
-  padding-top: 80px;
-  background: #000000;
 }
 
 .shader-container {
@@ -77,6 +71,17 @@ nav {
   z-index: 1;
 }
 
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  text-align: left;
+  padding-top: 80px;
+  background: transparent;
+}
+
 .scrim {
   position: absolute;
   top: 0;
@@ -84,21 +89,32 @@ nav {
   width: 100%;
   height: 100%;
   z-index: 3;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .hero-content {
   position: relative;
   z-index: 4;
-  max-width: 600px;
+  max-width: 650px;
   padding: 0 40px 60px 40px;
   color: white;
+  transition: opacity 0.3s ease;
+}
+
+.hero-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  z-index: 3;
+  background: linear-gradient(to bottom, transparent 0%, var(--dark-background) 100%);
 }
 
 .hero h1 {
   font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: bold;
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
@@ -128,6 +144,54 @@ nav {
   background-color: #d63d37;
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(236, 76, 70, 0.3);
+}
+
+.problem-solution {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 120px;
+  background: transparent;
+}
+
+.problem-solution .container {
+  position: relative;
+  z-index: 4;
+  max-width: 1200px;
+  padding: 0 40px;
+}
+
+.problem-solution-content {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.problem-container,
+.solution-container {
+  width: 100%;
+  color: white;
+}
+
+.problem-container h2,
+.solution-container h2 {
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.problem-container p,
+.solution-container p {
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .features {

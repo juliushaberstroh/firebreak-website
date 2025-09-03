@@ -1,7 +1,30 @@
 import { MeshGradient } from '@paper-design/shaders-react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
+  const [heroOpacity, setHeroOpacity] = useState(1)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const windowHeight = window.innerHeight
+      const fadeStart = windowHeight * 0.7
+      const fadeEnd = windowHeight * 1.1
+      
+      if (scrollY <= fadeStart) {
+        setHeroOpacity(1)
+      } else if (scrollY >= fadeEnd) {
+        setHeroOpacity(0)
+      } else {
+        const fadeProgress = (scrollY - fadeStart) / (fadeEnd - fadeStart)
+        setHeroOpacity(1 - fadeProgress)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   return (
     <>
       <header>
@@ -17,7 +40,7 @@ function App() {
         </nav>
       </header>
 
-      <section className="hero">
+      <div className="hero-problem-wrapper">
         <div className="shader-container">
           <MeshGradient
             distortion={0.75}
@@ -67,13 +90,32 @@ function App() {
             }}
           />
         </div>
+        
         <div className="scrim"></div>
-        <div className="hero-content">
-          <h1>Also constantly feel overwhelmed?</h1>
-          <p>Firebreak is here for you.</p>
-          <button className="cta-button">Get Started</button>
-        </div>
-      </section>
+        
+        <section className="hero">
+          <div className="hero-content" style={{ opacity: heroOpacity }}>
+            <h1>What if you could pause anytime you needed?</h1>
+            <p>Firebreak is more than an app. It's your personal guide for emtional regulation, reflection, and  resilience.</p>
+            <button className="cta-button">Get Started</button>
+          </div>
+        </section>
+
+        <section className="problem-solution">
+          <div className="container">
+            <div className="problem-solution-content">
+              <div className="problem-container">
+                <h2>When emotions take over, life gets harder.</h2>
+                <p>For many with ADHD, waves of rejection, stress, or overwhelm can feel impossible to stop. They cloud judgment, lead to impulsive decisions, and strain relationships. Existing apps focus on productivity — but few truly help with the emotional side of ADHD.</p>
+              </div>
+              <div className="solution-container">
+                <h2>Firebreak gives you space to breathe.</h2>
+                <p>Firebreak is built to help you pause in the moment, reflect afterwards, and grow stronger over time. It’s more than an app — it’s the first step toward an AI assistant designed to support ADHD minds with real emotional regulation tools and long-term guidance.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <section className="features">
         <div className="container">
