@@ -1,9 +1,12 @@
 import { MeshGradient } from '@paper-design/shaders-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import './App.css'
 
 function App() {
   const [heroOpacity, setHeroOpacity] = useState(1)
+  const [featuresVisible, setFeaturesVisible] = useState([true, true, true, true])
+  const featuresRef = useRef(null)
+  const animationTriggeredRef = useRef(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +15,7 @@ function App() {
       const fadeStart = windowHeight * 0.7
       const fadeEnd = windowHeight * 1.1
       
+      // Hero fade logic
       if (scrollY <= fadeStart) {
         setHeroOpacity(1)
       } else if (scrollY >= fadeEnd) {
@@ -20,9 +24,39 @@ function App() {
         const fadeProgress = (scrollY - fadeStart) / (fadeEnd - fadeStart)
         setHeroOpacity(1 - fadeProgress)
       }
+
+      // Features scroll-based animation
+      if (featuresRef.current) {
+        const featuresRect = featuresRef.current.getBoundingClientRect()
+        const featuresTop = featuresRect.top + scrollY
+        const featuresHeight = featuresRect.height
+        
+        // Start animation when features section comes into view
+        const animationStart = featuresTop - windowHeight + 200
+        const animationEnd = featuresTop + featuresHeight - 200
+        
+        if (scrollY >= animationStart && scrollY <= animationEnd) {
+          const progress = (scrollY - animationStart) / (animationEnd - animationStart)
+          
+          // Progressive reveal - containers surround the title
+          const thresholds = [0.2, 0.4, 0.6, 0.8]
+          setFeaturesVisible(prev => {
+            const newVisibility = [...prev]
+            thresholds.forEach((threshold, index) => {
+              if (progress >= threshold && !newVisibility[index]) {
+                newVisibility[index] = true
+              }
+            })
+            return newVisibility
+          })
+        }
+      }
     }
 
     window.addEventListener('scroll', handleScroll)
+    // Call once to set initial state
+    handleScroll()
+    
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
   return (
@@ -117,23 +151,30 @@ function App() {
         </section>
       </div>
 
-      <section className="features">
+      <section className="features" ref={featuresRef}>
         <div className="container">
           <h2>How We Help</h2>
           <div className="features-wrapper">
-            <div className="features-grid">
+            {/* Top */}
+            <div className={`surrounding-container position-top ${featuresVisible[0] ? 'animate-in' : ''}`}>
               <article className="feature">
                 <div className="feature-icon">🧠</div>
                 <h3>Emotional Regulation</h3>
                 <p>Learn evidence-based techniques to manage overwhelming emotions and build resilience.</p>
               </article>
-              
+            </div>
+            
+            {/* Right */}
+            <div className={`surrounding-container position-right ${featuresVisible[1] ? 'animate-in' : ''}`}>
               <article className="feature">
                 <div className="feature-icon">⚡</div>
                 <h3>ADHD Support</h3>
                 <p>Transform ADHD challenges into strengths with personalized strategies and tools.</p>
               </article>
-              
+            </div>
+            
+            {/* Bottom */}
+            <div className={`surrounding-container position-bottom ${featuresVisible[2] ? 'animate-in' : ''}`}>
               <article className="feature">
                 <div className="feature-icon">🌱</div>
                 <h3>Personal Growth</h3>
@@ -141,23 +182,12 @@ function App() {
               </article>
             </div>
             
-            <div className="features-grid">
+            {/* Left */}
+            <div className={`surrounding-container position-left ${featuresVisible[3] ? 'animate-in' : ''}`}>
               <article className="feature">
                 <div className="feature-icon">🧠</div>
-                <h3>Emotional Regulation</h3>
-                <p>Learn evidence-based techniques to manage overwhelming emotions and build resilience.</p>
-              </article>
-              
-              <article className="feature">
-                <div className="feature-icon">⚡</div>
-                <h3>ADHD Support</h3>
-                <p>Transform ADHD challenges into strengths with personalized strategies and tools.</p>
-              </article>
-              
-              <article className="feature">
-                <div className="feature-icon">🌱</div>
-                <h3>Personal Growth</h3>
-                <p>Develop sustainable habits and mindset shifts for long-term emotional wellness.</p>
+                <h3>Mindfulness</h3>
+                <p>Practice presence and awareness to build emotional resilience and clarity.</p>
               </article>
             </div>
           </div>
