@@ -13,7 +13,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 20px;
+  padding: 15px 20px 0px 20px;
   max-width: 1200px;
   margin: -20px auto 0 auto;
 }
@@ -26,7 +26,7 @@ nav {
 }
 
 .logo img {
-  height: 144px;
+  height: 80px;
   width: auto;
   display: block;
 }
@@ -196,7 +196,7 @@ nav {
 
 .features {
   padding: 100px 0;
-  background-color: var(--background-color);
+  background-color: hsl(240, 15%, 15%);
 }
 
 .features h2 {
@@ -204,16 +204,22 @@ nav {
   font-weight: bold;
   font-size: 2.5rem;
   text-align: center;
-  color: var(--primary-color);
-  margin-bottom: 60px;
+  color: white;
+  margin-bottom: 120px;
+}
+
+.features-wrapper {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .features-grid {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 480px;
 }
 
 .feature {
@@ -381,5 +387,15 @@ footer {
   .signup-form-wrapper input[type="email"] {
     width: 100%;
     margin-bottom: 10px;
+  }
+  
+  .features-wrapper {
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .features-grid {
+    max-width: 100%;
   }
 }

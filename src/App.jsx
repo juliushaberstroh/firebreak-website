@@ -30,7 +30,7 @@ function App() {
       <header>
         <nav>
           <div className="logo">
-            <img src="/assets/images/Horizontal Logo Transparent.svg" alt="Firebreak Logo" />
+            <img src="/assets/images/Landing Page Firebreak Logo Transprent.svg" alt="Firebreak Logo" />
           </div>
           <div className="menu-icon">
             <span></span>
@@ -120,24 +120,46 @@ function App() {
       <section className="features">
         <div className="container">
           <h2>How We Help</h2>
-          <div className="features-grid">
-            <article className="feature">
-              <div className="feature-icon">🧠</div>
-              <h3>Emotional Regulation</h3>
-              <p>Learn evidence-based techniques to manage overwhelming emotions and build resilience.</p>
-            </article>
+          <div className="features-wrapper">
+            <div className="features-grid">
+              <article className="feature">
+                <div className="feature-icon">🧠</div>
+                <h3>Emotional Regulation</h3>
+                <p>Learn evidence-based techniques to manage overwhelming emotions and build resilience.</p>
+              </article>
+              
+              <article className="feature">
+                <div className="feature-icon">⚡</div>
+                <h3>ADHD Support</h3>
+                <p>Transform ADHD challenges into strengths with personalized strategies and tools.</p>
+              </article>
+              
+              <article className="feature">
+                <div className="feature-icon">🌱</div>
+                <h3>Personal Growth</h3>
+                <p>Develop sustainable habits and mindset shifts for long-term emotional wellness.</p>
+              </article>
+            </div>
             
-            <article className="feature">
-              <div className="feature-icon">⚡</div>
-              <h3>ADHD Support</h3>
-              <p>Transform ADHD challenges into strengths with personalized strategies and tools.</p>
-            </article>
-            
-            <article className="feature">
-              <div className="feature-icon">🌱</div>
-              <h3>Personal Growth</h3>
-              <p>Develop sustainable habits and mindset shifts for long-term emotional wellness.</p>
-            </article>
+            <div className="features-grid">
+              <article className="feature">
+                <div className="feature-icon">🧠</div>
+                <h3>Emotional Regulation</h3>
+                <p>Learn evidence-based techniques to manage overwhelming emotions and build resilience.</p>
+              </article>
+              
+              <article className="feature">
+                <div className="feature-icon">⚡</div>
+                <h3>ADHD Support</h3>
+                <p>Transform ADHD challenges into strengths with personalized strategies and tools.</p>
+              </article>
+              
+              <article className="feature">
+                <div className="feature-icon">🌱</div>
+                <h3>Personal Growth</h3>
+                <p>Develop sustainable habits and mindset shifts for long-term emotional wellness.</p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
