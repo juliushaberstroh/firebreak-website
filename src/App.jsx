@@ -111,7 +111,7 @@ function App() {
           <div className="hero-content" style={{ opacity: heroOpacity }}>
             <h1>What if you could pause anytime you needed?</h1>
             <p>Firebreak is more than an app. It's your personal guide for emtional regulation, reflection, and  resilience.</p>
-            <button className="cta-button">Get Started</button>
+            <button className="cta-button">Join our early access list</button>
           </div>
           <div className="hero-bottom-right">
             <StaticRadialGradient

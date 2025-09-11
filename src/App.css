@@ -197,7 +197,7 @@ nav {
 }
 
 .cta-button {
-  background-color: var(--secondary-color);
+  background-color: #154dbc;
   color: var(--white);
   font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: bold;
@@ -210,9 +210,9 @@ nav {
 }
 
 .cta-button:hover {
-  background-color: #d63d37;
+  background-color: #0f3d99;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(236, 76, 70, 0.3);
+  box-shadow: 0 8px 25px rgba(21, 77, 188, 0.3);
 }
 
 .problem-solution {
