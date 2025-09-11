@@ -1,9 +1,10 @@
-import { MeshGradient } from '@paper-design/shaders-react'
+import { MeshGradient, StaticRadialGradient } from '@paper-design/shaders-react'
 import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
   const [heroOpacity, setHeroOpacity] = useState(1)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,11 +37,20 @@ function App() {
           <div className="logo">
             <img src="/assets/images/Landing Page Firebreak Logo Transprent.svg" alt="Firebreak Logo" />
           </div>
-          <div className="menu-icon">
+          <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
             <span></span>
             <span></span>
             <span></span>
           </div>
+          {menuOpen && (
+            <div className="mobile-menu">
+              <a href="#home">Home</a>
+              <a href="#features">Features</a>
+              <a href="#safety">Safety</a>
+              <a href="#about">About</a>
+              <a href="#newsletter">Newsletter</a>
+            </div>
+          )}
         </nav>
       </header>
 
@@ -103,6 +113,28 @@ function App() {
             <p>Firebreak is more than an app. It's your personal guide for emtional regulation, reflection, and  resilience.</p>
             <button className="cta-button">Get Started</button>
           </div>
+          <div className="hero-bottom-right">
+            <StaticRadialGradient
+              style={{ height: 167, width: 300, backgroundColor: 'transparent' }}
+              colorBack="#ffffff00"
+              radius={1.04}
+              focalDistance={0}
+              focalAngle={0}
+              falloff={0}
+              mixing={0.5}
+              distortion={0.23}
+              distortionShift={0}
+              distortionFreq={12}
+              grainMixer={0.16}
+              grainOverlay={0}
+              offsetX={0}
+              offsetY={0}
+              colors={["#ec4c46","#f4a462","#ffffff"]}
+            />
+            <div className="hero-bottom-right-text">
+              <p>Need help now?</p>
+            </div>
+          </div>
         </section>
 
         <section className="problem-solution">
@@ -126,21 +158,18 @@ function App() {
           <h2>How We Help</h2>
           <div className="features-grid">
             <article className="feature">
-              <div className="feature-icon">🧠</div>
-              <h3>Emotional Regulation</h3>
-              <p>Learn evidence-based techniques to manage overwhelming emotions and build resilience.</p>
+              <h3>your calm, one tap away</h3>
+              <p style={{textAlign: 'justify'}}>When emotions rise fast, Firebreak gives you a simple button to press. The Pause Button System guides you through calming steps - helping you slow down, breathe, and regain clarity before things spiral out of control. It's designed to be quick, gentle, and always there when you need it most.</p>
             </article>
             
             <article className="feature">
-              <div className="feature-icon">⚡</div>
-              <h3>ADHD Support</h3>
-              <p>Transform ADHD challenges into strengths with personalized strategies and tools.</p>
+              <h3>Personal support that learns with you</h3>
+              <p style={{textAlign: 'justify'}}>Firebreak goes beyond generic tips. Our AI-based coaching adapts to your patterns, moods, and progress - offering strategies that fit your unique ADHD journey. Whether you need quick encouragement in the moment or structured guidance for the long term, Firebreak is there to help you grow, step by step.</p>
             </article>
             
             <article className="feature">
-              <div className="feature-icon">🌱</div>
-              <h3>Personal Growth</h3>
-              <p>Develop sustainable habits and mindset shifts for long-term emotional wellness.</p>
+              <h3>Made for ADHD minds</h3>
+              <p style={{textAlign: 'justify'}}>Every screen in Firebreak is designed with neurodivergent users in mind. Clear navigation, calming colors, and minimal clutter help you stay focused without overwhelm. The experience is simple, intuitive, and distraction-free - so the app supports you, not the other way around.</p>
             </article>
           </div>
         </div>
